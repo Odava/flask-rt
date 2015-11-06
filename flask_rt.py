@@ -45,6 +45,8 @@ class StateNotifier(object):
         state['method'] = method
         if hasattr(model, 'id'):
             state['id'] = model.id
+        if hasattr(model, 'serialize'):
+            state['object'] = model.serialize
         self.pusher_client.trigger(channel, event, state)
 
     def after_insert(self, **kw):
