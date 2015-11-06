@@ -22,6 +22,6 @@ to send to.
     notifier.channel_mapper(lambda: g.user.notifier_channel if hasattr(g, 'user') else None)
 
 If you don't want a particular model to send notifications, just add
-**__notifier_skip__ == True** to the SQLAlchemy model definition.
+`__notifier_skip__ == True` to the SQLAlchemy model definition.
 
 Only declarative models that extend db.Model are currently supported.
