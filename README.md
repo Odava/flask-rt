@@ -22,7 +22,7 @@ to send to.
     notifier.channel_mapper(lambda: g.user.notifier_channel if hasattr(g, 'user') else None)
 
 If you don't want a particular model to send notifications, just add
-`__notifier_skip__ == True` to the SQLAlchemy model definition.
+`__rt_skip__ == True` to the SQLAlchemy model definition.
 
 Only declarative models that extend db.Model are currently supported.
 
@@ -45,37 +45,14 @@ Example notification payload that the client would receive (json):
       "method": "insert",
       "id": 4,
       "object": {
-        "discounts": [
-          {
-            "amount": "0.75",
-            "title": "Senior discount"
-          },
-          {
-            "amount": "0.25",
-            "title": "coupon"
-          }
-        ],
-        "items_subtotal": "5.50",
-        "total_discount": "1.00",
-        "created": 1446836426000,
-        "payment_type": 0,
-        "items": [
-          {
-            "amount": "3.00",
-            "title": "Shoes"
-          },
-          {
-            "amount": "0.50",
-            "title": "Socks"
-          },
-          {
-            "amount": "2.00",
-            "title": "Shirt"
-          }
-        ],
-        "total_billed": "6.50",
-        "id": 4,
-        "taxes": "2.00",
-        "total_taxes": null
+        ...
       }
     }
+
+### TODO:
+
+Blocking http requests are not really well suited for flask.  May not scale
+well and cause long running http threads.  Tornado may be more suitable or
+even using a local intermediate queue.
+
+Include support for private channels.

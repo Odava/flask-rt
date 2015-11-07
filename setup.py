@@ -17,18 +17,9 @@ setup(
     description='Notifies clients of model state changes via pusher app ',
     long_description=__doc__,
     zip_safe=False,
-    include_package_data=True,
-    platforms='any',
+    packages=['flask_rt'],
     install_requires=[
         'Flask',
         'pusher'
-    ],
-    classifiers=[
-        'Environment :: Web Environment',
-        'Intended Audience :: Developers',
-        'Operating System :: OS Independent',
-        'Programming Language :: Python',
-        'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
-        'Topic :: Software Development :: Libraries :: Python Modules'
     ]
 )
