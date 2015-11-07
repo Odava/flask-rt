@@ -20,6 +20,7 @@ setup(
     packages=['flask_rt'],
     install_requires=[
         'Flask',
-        'pusher'
+        'pusher',
+        'sqlalchemy'
     ]
 )
