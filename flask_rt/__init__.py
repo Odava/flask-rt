@@ -1,3 +1,9 @@
+ # monkeypatch pusher to use simplejson, this is needed to support
+ # serialization of Decimal number types
+import simplejson
+import pusher
+pusher.pusher.json = simplejson
+
 from pusher import Pusher
 from sqlalchemy.event import listen
 
