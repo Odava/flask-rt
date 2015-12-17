@@ -67,7 +67,7 @@ class StateNotifier(object):
     def receive_engine_connect(self, **kw):
 
         def get_class_by_tablename(tablename):
-            for c in self.db.Model._decl_class_registry.values():
+            for c in list(self.db.Model._decl_class_registry.values()):
                 if hasattr(c, '__tablename__') and c.__tablename__ == tablename:
                     return c
 
